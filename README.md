@@ -13,6 +13,7 @@ This project is a clone of the Microsoft login page, created using only HTML and
 ## Screenshots
 
 Insert screenshots or GIFs showcasing the Microsoft login clone in different states, such as desktop and mobile views.
+![Microsoft Login Clone](link-to-your-gif-file.gif)
 
 ## Technologies Used
 
